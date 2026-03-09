@@ -25,3 +25,10 @@ r读 w写 x执行权限
 chmod用于修改文件和文件夹权限，只有root用户或者所属用户可以修改，chmod 【-R】【权限】 【文件或文件夹】，-R（可选）为将同一文件夹内所有内容权限进行修改，例如：chmod u=wrx,g=w,o=wr hello.txt，权限也可用数字表示，r为4，w为2，x为1，6表示rw，例如：chmod 751 hello.txt
 ### 3.5chown命令
 chown用于修改文件和文件夹的用户和用户组，只有root用户可以修改，chown 【-R】【用户】 【:】 【用户组】 【文件或文件夹】。
+## Linux 系统安装git 
+sudo apt update
+sudo apt install git -y
+git --version #检查是否安装成功，若出现版本号则成功
+git config --global user.name"【用户名】"
+git config --global user.email"【邮箱】"
+got config --list #查看配置
