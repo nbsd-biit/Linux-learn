@@ -55,3 +55,14 @@ git --version #检查是否安装成功，若出现版本号则成功
 git config --global user.name"【用户名】"   
 git config --global user.email"【邮箱】"   
 got config --list #查看配置   
+## 第四章
+### 4.1 常用快捷键
+Ctrl+a 光标移动到开头      
+Ctrl+e 光标移动到结尾    
+Ctrl+左键 向左跳一个单词   
+ctrl+右键 向右跳一个单词     
+Ctrl+c 强制退出   
+ctrl+d 退出或登出    
+ctrl+r 搜索历史命令    
+history 搜索历史命令  
+ctrl+l 清屏     
