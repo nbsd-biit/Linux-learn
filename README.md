@@ -73,3 +73,64 @@ apt 【-y】【install |remove |search】【软件名】,-y自动确认，需要
 systemctl 【start|stop|status|enable|disable】【软件名】,分别为开始、结束、查看状态、开机自启、关闭开机自启    
 ### 4.4 软链接
 ln -s 【被链接文件】【目的地】 类似快捷方式    
+### 4.5 日期和时间
+date 【-d】【格式化字符串】
+### 4.6 ip和主机名
+sudo apt install net-tools   
+ifconfig 查看网络IP    
+ping 【-c num】 ip或者主机名 -c为检查次数      
+wegt 【-b】 url -b为后台下载      
+curl 【-O】url 用于发送http网络请求，用于文件下载、获取信息，-O用于下载文件    
+### 4.7 端口
+nmap 【IP号】，查看IP对外暴漏的端口    
+netstat -nap | grep 【端口号】，查看指定端口的占用    
+### 4.8 进程
+ps 【-e -f】-e显示所有进行，-f详细展示    
+kill 【-9】 【进程ID】 -9为强制关闭进程    
+### 主机状态监测
+top 查看CPU、内存使用情况，-p显示某个进程信息，-d设置刷新时间，-c显示产生命令的详细指令，-n刷新次数，-i不显示闲置进程    
+df 查看磁盘信息，-h更加详细
+### 环境变量
+echo$PATH 查看环境变量，PATH可替换    
+export 【变量名】=【名字】，创建临时环境变量     
+在HOME用户内通过 vi ~/.baserc export 【变量名】=【名字】source .baserc，只在当前用户生效    
+增加全局环境变量在/etc/profile export 【变量名】=【名字】source /etc/profile，在全局生效    
+### 解压压缩
+Linux和Mac系统常用有2种压缩格式，后缀名分别是:   
+①tar, 称之为tarball 归档文件,即简单的将文件组装到一个.tar的文件内,并没有太多文件体积的减少,仅仅是简单的封装   
+②gz，也常见为tar.gz,   
+gzip格式压缩文件,即使用gzip压缩算法将文件压缩到一个文件内，可以极大的减少压缩后的体积   
+这两种格式使用tar命令均可以进行压缩和解压缩的操作语法:tar[-c -v-x-f-z-c] 参数1参数2 ... 参数N   
+①-C,创建压缩文件，用于压缩模式   
+②-V,显示压缩、解压过程，用于查看进度 -x,解压模式   
+③-f,要创建的文件,或要解压的文件，-f选项必须在所有选项中位置处于最后一个 ④-z,gzip模式,不使用-z就是普通的tarball格式   
+⑤-C,选择解压的目的地，用于解压模式   
+tar的常用压缩组合为:   
+①tar -cvf test.tar 1.txt 2.txt 3.txt   
+将1.txt 2.txt 3.txt 压缩到test.tar文件内   
+②tar -zcvf test.tar.gz 1.txt 2.txt 3.txt   
+将1.txt 2.txt 3.txt 压缩到test.tar.gz文件内，使用gzip模式    
+注意:-z选项如果使用的话，一般处于选项位第一个，-f选项，必须在选项位最后一个   
+常用的tar解压组合有：   
+①tar -xvf test.tar   
+解压test.tar,将文件解压至当前目录   
+②tar -xvftest.tar -C /home/itheima   
+解压test.tar,将文件解压至指定目录(/home/itheima)   
+③tar -zxvftest.tar.gz-C /home/itheima   
+以Gzip模式解压test.tar.gz,将文件解压至指定目录(/home/itheima)   
+注意:  
+-f选项，必须在选项组合体的最后一位，-z选项，建议在开头位置，-C选项单独使用，和解压所需的其它参数分开
+zip 命令压缩文件：
+语法: zip [-r] 参数1参数2...参数N
+-r,被压缩的包含文件夹的时候，需要使用-r选项，和rm、cp等命令的-r效果一致
+示例:
+zip test.zip a.txt b.txt c.txt
+将a.txt b.txt c.txt 压缩到test.zip文件内
+zip -r test.zip test itheima a.txt
+将test、itheima两个文件夹和a.txt文件,压缩到test.zip文件内
+unzip 命令解压文件：
+语法: unzip [-d] 参数
+-d,指定要解压去的位置,同tar的-C选项· 参数,被解压的zip压缩包文件
+示例:
+unzip test.zip,将test.zip解压到当前目录
+unzip test.zip-d /home/itheima,将test.zip解压到指定文件夹内(/home/itheima)
