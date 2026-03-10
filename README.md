@@ -66,3 +66,10 @@ ctrl+d 退出或登出
 ctrl+r 搜索历史命令    
 history 搜索历史命令  
 ctrl+l 清屏     
+### 4.2 软件安装
+yum 【-y】【install |remove |search】【软件名】,-y自动确认，需要root权限和联网,centos    
+apt 【-y】【install |remove |search】【软件名】,-y自动确认，需要root权限和联网，ubuntu     
+### 4.3 systemctl控制软件
+systemctl 【start|stop|status|enable|disable】【软件名】,分别为开始、结束、查看状态、开机自启、关闭开机自启    
+### 4.4 软链接
+ln -s 【被链接文件】【目的地】 类似快捷方式    
