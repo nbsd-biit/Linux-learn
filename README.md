@@ -131,6 +131,7 @@ unzip 命令解压文件：
 unzip test.zip,将test.zip解压到当前目录
 unzip test.zip-d /home/itheima,将test.zip解压到指定文件夹内(/home/itheima)
 # ROS2
+
 VM虚拟机22.04，ros2 t
 locale  # check for UTF-8   
 sudo apt update && sudo apt install locales   
@@ -148,5 +149,19 @@ sudo apt install ros-humble-desktop
 ——————————————   
 ros2 bag record /turtle1/cmd_vel   #录制指令   
 ros2 bag play rosbag2_2026_03_11-10_24_10/rosbag2_2026_03_11-10_24_10_0.db3 #执行指令   
-----------
-sudo apt install openssh-server
+sudo apt install openssh-server   
+### 功能包创建
+cd ~/【工作空间】/src   
+ros2 pkg create --build-type ament_cmake test_pkg_c，c文件包含package.xml和cmakelists.txt     
+ros2 pkg create --build-type ament_python test_pkg_python，python文件包含setup.py入口程序点的描述和setup.cfg   
+### 功能包编译
+cd ~/【工作空间】/src   
+colcon build  
+source install/local_setup.sh  
+### 节点
+·执行具体任务的进程   
+·独立运行的可执行文件   
+·可使用不同编译语言  
+·分布式运行   
+·通过节点名进行管理   
+编程过程：1.编程接口初始化 2.创建节点并初始化 3.实现节点功能 4.销毁节点并关闭接口   
