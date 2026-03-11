@@ -148,3 +148,5 @@ sudo apt install ros-humble-desktop
 ——————————————   
 ros2 bag record /turtle1/cmd_vel   #录制指令   
 ros2 bag play rosbag2_2026_03_11-10_24_10/rosbag2_2026_03_11-10_24_10_0.db3 #执行指令   
+----------
+sudo apt install openssh-server
